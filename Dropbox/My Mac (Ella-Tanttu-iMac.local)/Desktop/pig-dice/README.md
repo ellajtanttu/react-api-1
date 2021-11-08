@@ -103,17 +103,22 @@ Object Player
 - this.totalScore = totalScoreNumber;
 <!-- - this.turnChange = turn; -->
 
+
+if player.turn === true 
+  then add score to that player object
+
+
 let player1 = 6;
 let player2 = 0;
 
 Player.prototype.turnChange = function (){
   if (this.roll ===  1) {
-    this.turnChange = false ;
+    this.turn = false ;
   } else if (holdVariable === true ){
     totalScoreNumber += turnScore;
-    this.turnChange = false;
+    this.turn = false;
   } else {
-    this.turnChange = true;
+    this.turn = true;
   }
 }
 
@@ -123,7 +128,62 @@ if ( num === 1 || click hold) {
 } else {
   total += num;
 }
+
+function Player(roll, turn, turnScore, totalScore) {
+  this.roll = roll;
+  this.turnScore = turnScore;
+  this.totalScoreNumber = totalScore;
+  this.turn = turn;
+}
+
+1. PLAYER OBJECT CONSTRUCTOR
+X 2. ROLL METHOD - tiggered by: roll button pushed
+ - run roll method
+ - number is returned
+ - player.roll = number
+3. TURN CHANGE METHOD - triggered by: player.roll.val() = 1
+ X - roll value > player.turn
+ - hold button trigger > player.turn
+ - final result > player.turn = false
+4. WIN METHOD -
+ - if player.totalScore >= 100;
+ - game over
+MAIN FUNCTION
+
+
+<!-- UI -->
+1. Form Submit - Creates a player object
+2. Second Form Submit - Creates another player object
+3. First player hits roll -
+    a. number 1 is returned
+    b. number 2-6 is returned
+      a. player rolls again, go to a. 
+      b. player hits hold
+4. Player ends turn (either way)
+5. same sequence for Player 2
+6. Player wins game (100 points)
+7. player resets game
+
+<!-- How to test a constructor--------
+"It should create a new instance of a player object"
+test: let player1 = new Player(..., ..., ....)
+Expected Result: player1.score. >... -->
+
+<!-- How to test a method--------
+
+Code:
+player1.turnChange();
+expected output:
+player1.turnchange = false -->
+
+
 ## Tests
+
+Describe: Player Constructor
+
+Test: "It should create a new instance of a Player object"
+Code: let testPlayer = new Player(5, 0, 0, true);
+Expected Result: testPlayer = Player { roll: 5, turnScore: 0, totalScoreNumber: 0, turn: true }
 
 Describe: rollDice()
 

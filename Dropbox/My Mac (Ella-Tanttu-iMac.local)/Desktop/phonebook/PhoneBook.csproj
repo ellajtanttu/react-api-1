@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk"> <!--tell compiler we are uing Microsoft.NET.Sdk a development kit which contains the C# language and many libraries-->
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType> <!--Tells the compiler we're building an executable file, aka a program that can be run-->
+    <TargetFramework>net5.0</TargetFramework> <!--Tells the compiler to use the .NET 5 framework to build the file, which contains a lot of our code libraries -->
+  </PropertyGroup>
+
+</Project>
